@@ -5,6 +5,7 @@ import mongoose from "mongoose"
 import cors from "cors"
 import userRouter from "./Routers/user.router.js"
 import sipRouter from "./Routers/bank.router.js"
+import userSipRouter from "./Routers/info.router.js"
 const app= express()
 const port=8000
 app.use(express.json()); //body-parser (to read request body data)
@@ -32,3 +33,4 @@ app.listen(port, ()=>{
 
 app.use("/users",userRouter)
 app.use("/sips",sipRouter)
+app.use("/userSips",userSipRouter)
