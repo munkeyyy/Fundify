@@ -2,11 +2,12 @@ import bankModel from "../Models/bank.model";
 
 export const addSip = async (req, res) => {
   try {
-    const { name, riskLevel, description } = req.body;
+    const { name, riskLevel, description, returns } = req.body;
     const createSip = new bankModel({
       name: name,
       riskLevel: riskLevel,
       description: description,
+      returns:returns
     });
     await createSip.save();
     if (createSip) {
@@ -64,10 +65,10 @@ export const getSingleSip = async (req, res) => {
 export const updateSip = async (req, res) => {
   try {
     const { sipId } = req.params.sipId;
-    const { name, riskLevel, description } = req.body;
+    const { name, riskLevel, description, returns } = req.body;
     const updateSipData = await bankModel.updateOne(
       { _id: sipId },
-      { $set: { name: name, riskLevel: riskLevel, description: description } }
+      { $set: { name: name, riskLevel: riskLevel, description: description, returns:returns } }
     );
     if (updateSipData.acknowledged) {
       return res.status(200).json({
