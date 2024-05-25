@@ -64,8 +64,8 @@ const Register = () => {
                 .then((res) => {
                   console.log(res.data);
                   notification.success({ message: res.data.message });
-                  localStorage.setItem("token", res.data.token);
-                  navigate("/");
+                  // localStorage.setItem("token", res.data.token);
+                  navigate("/login");
                 })
                 .catch((err) => {
                   console.log(err);
