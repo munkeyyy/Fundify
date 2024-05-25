@@ -121,7 +121,7 @@ export const updateUser = async (req, res) => {
       console.log("data",existData.avatar)
       const { user_name, email, password, phone, role } = req.body;
       let image = existData.avatar;
-        console.log("EXIST", image)
+        // console.log("EXIST", image)
       if (req.file) {
         image = req.file.filename;
         if (fs.existsSync("./uploads/users/" + existData.avatar)) {

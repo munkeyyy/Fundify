@@ -7,6 +7,11 @@ const BankSchema = new Schema(
       required: true,
     },
     riskLevel: { type: String, required: true },
+    category:{type:String, default:"equity"},
+    image:{
+      type:String,
+      default:null
+    },
     returns:{
       type:String,
       default:null
