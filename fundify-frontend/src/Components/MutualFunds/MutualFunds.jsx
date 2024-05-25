@@ -20,7 +20,7 @@ const MutualFunds = () => {
           <h1 className="text-white text-[1.5vw] font-sans font-medium">
             All Mutual Funds
           </h1>
-          <button className="py-2 flex items-center gap-2 font-semibold px-4  cursor-pointer text-white rounded-md mt-4 bg-[#02B386]">
+          <button className="py-2 transition-all duration-100 active:scale-[.95] flex items-center gap-2 font-semibold px-4  cursor-pointer text-white rounded-md mt-4 bg-[#02B386]">
             ADD SIP
             <span className="text-white text-lg">
 
