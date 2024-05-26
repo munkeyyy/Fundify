@@ -6,12 +6,12 @@ import { IoMdEyeOff } from "react-icons/io";
 import { IoEye } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
 
-const Register = () => {
+const Register = ({setIsChanged}) => {
   const passwordRef = useRef();
   const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="bg-white">
+    <div className="bg-white w-full h-full">
       <div className="flex p-4 items-center justify-center flex-col">
         <h1 className="text-[#45475B] text-[1.3vw] font-bold">Register</h1>
         <div>
@@ -84,7 +84,7 @@ const Register = () => {
               /* and other goodies */
             }) => (
               <form
-                className="flex flex-col gap-4 mt-12"
+                className="flex flex-col gap-4 mt-4"
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col gap-1 w-[20vw] items-center">
@@ -101,7 +101,7 @@ const Register = () => {
                     onBlur={handleBlur}
                     value={values.user_name}
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 text-[.8vw]">
                     {errors.user_name && touched.user_name && errors.user_name}
                   </span>
                 </div>
@@ -119,7 +119,7 @@ const Register = () => {
                     onBlur={handleBlur}
                     value={values.email}
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 text-[.8vw]">
                     {errors.email && touched.email && errors.email}
                   </span>
                 </div>
@@ -137,7 +137,7 @@ const Register = () => {
                     onBlur={handleBlur}
                     value={values.password}
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 text-[.8vw]">
                     {errors.password && touched.password && errors.password}
                   </span>
                   <button
@@ -167,7 +167,7 @@ const Register = () => {
                     onBlur={handleBlur}
                     value={values.phone}
                   />
-                  <span className="text-red-600">
+                  <span className="text-red-600 text-[.8vw]">
                     {errors.phone && touched.phone && errors.phone}
                   </span>
                 </div>
@@ -181,6 +181,12 @@ const Register = () => {
               </form>
             )}
           </Formik>
+        </div>
+        <div onClick={()=>setIsChanged(false)} className="flex p-4 mt-6 items-center gap-2 ">
+          Already have an account?{" "}
+          <span className="font-semibold text-black relative after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-0 after:bottom-[-5%] after:left-0 after:transition-all cursor-pointer hover:after:w-full">
+            Login
+          </span>
         </div>
       </div>
     </div>

@@ -1,18 +1,23 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { Formik } from "formik";
 import axios from "axios";
 import { notification } from "antd";
 import { IoEye } from "react-icons/io5";
 import { IoMdEyeOff } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
-const Login = () => {
+import { LoginContext } from "../../context/Login/LoginContext";
+import { UserContext } from "../../context/User/UserContext";
+const Login = ({setIsChanged}) => {
   const passwordRef = useRef();
   const [isClicked, setIsClicked] = useState(false);
-  const navigate= useNavigate()
+  const navigate = useNavigate();
+  const { setIsLoggedIn } = useContext(LoginContext);
+  const { setUser } = useContext(UserContext);
+  
   return (
-    <div className="bg-white">
+    <div className="bg-white w-full h-full">
       <div className="flex p-4 items-center justify-center flex-col">
-        <h1 className="text-[#45475B] text-[1.3vw] font-bold">Welcome Back</h1>
+        <h1 className="text-[#45475B] mt-4 font-semibold text-[2vw]">Welcome</h1>
         <div>
           <Formik
             initialValues={{ email: "", password: "" }}
@@ -45,9 +50,22 @@ const Login = () => {
                 })
                 .then((res) => {
                   console.log(res.data);
+                  setUser(res.data.data);
+                  setIsLoggedIn(true);
                   notification.success({ message: res.data.message });
                   localStorage.setItem("token", res.data.token);
-                  navigate("/")
+                  localStorage.setItem("user", JSON.stringify(res.data.data));
+
+                  const logout = () => {
+                    localStorage.clear();
+                    setIsLoggedIn(false);
+                    navigate("/");
+                    notification.error({
+                      message: "Please Log in, session expired.",
+                    });
+                  };
+                  navigate("/");
+                  setTimeout(logout, 3600000);
                 })
                 .catch((err) => {
                   console.log(err);
@@ -127,6 +145,12 @@ const Login = () => {
               </form>
             )}
           </Formik>
+        </div>
+        <div onClick={()=>setIsChanged(true)} className="flex p-4 mt-6 items-center gap-2 ">
+          Don't have an account?{" "}
+          <span className="font-semibold text-black relative after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-0 after:bottom-[-5%] after:left-0 after:transition-all cursor-pointer hover:after:w-full">
+            Register
+          </span>
         </div>
       </div>
     </div>

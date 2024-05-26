@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../../images/logo.png";
 import { IoMdSearch } from "react-icons/io";
 import { IoIosClose } from "react-icons/io";
 import { AiOutlineBell } from "react-icons/ai";
 import { BsCart2 } from "react-icons/bs";
 import { IoWalletOutline } from "react-icons/io5";
+import UserProfile from "../../UserProfile/UserProfile";
+import { LoginContext } from "../../../context/Login/LoginContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [isChanging, setIsChanging] = useState(false);
   const [value, setValue] = useState("");
+  const navigate= useNavigate()
+  const { isLoggedIn } = useContext(LoginContext);
   const handleChange = (e) => {
     if (e.target.value.length > 0) {
       setIsChanging(true);
@@ -57,16 +62,33 @@ const Navbar = () => {
           )}
         </div>
         <div className="flex items-center  gap-9">
-          <div className="text-2xl cursor-pointer active:text-[#0abb92]">
+          <div
+            title="notification"
+            className="text-2xl cursor-pointer active:text-[#0abb92]"
+          >
             <AiOutlineBell />
           </div>
-          <div className="text-2xl cursor-pointer active:text-[#0abb92]">
+          <div
+            title="wallet"
+            className="text-2xl cursor-pointer active:text-[#0abb92]"
+          >
             <IoWalletOutline />
           </div>
-          <div className="text-2xl cursor-pointer active:text-[#0abb92]">
+          <div
+            title="cart"
+            className="text-2xl cursor-pointer active:text-[#0abb92]"
+          >
             <BsCart2 />
           </div>
-          <div></div>
+          <div>
+            {isLoggedIn ? (
+              <UserProfile />
+            ) : (
+              <button onClick={()=>navigate("/login")} className="py-2 font-semibold px-4  cursor-pointer text-white rounded-md mt-4 bg-[#02B386]">
+                Login
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </div>

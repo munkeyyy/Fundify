@@ -5,20 +5,28 @@ import MutualFunds from "./Components/MutualFunds/MutualFunds";
 import { Route, Routes } from "react-router-dom";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
+import LoginProvider from "./context/Login/LoginProvider";
+import UserProvider from "./context/User/UserProvider";
+import Auth from "./Components/Auth/Auth";
+import { useContext } from "react";
+import { LoginContext } from "./context/Login/LoginContext";
 
 // import Public from "./Components/Public";
 
-
 function App() {
+  // const{isLoggedIn}=useContext(LoginContext)
   return (
-    <div className="App">
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<MutualFunds/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/register" element={<Register/>}/>
-      </Routes>
-    </div>
+    <LoginProvider>
+      <UserProvider>
+        <div className="App">
+          {<Navbar />}
+          <Routes>
+            <Route path="/" element={<MutualFunds />} />
+            <Route path="/login" element={<Auth />} />
+          </Routes>
+        </div>
+      </UserProvider>
+    </LoginProvider>
   );
 }
 
