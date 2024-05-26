@@ -15,7 +15,7 @@ const InfoSchema = new Schema({
   startDate: {
     type: Date,
     required: true,
-  },
+  },  
   nextPaymentDate: {
     type: Date,
     required: true,
