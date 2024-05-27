@@ -4,8 +4,20 @@ import { FaPlus } from "react-icons/fa";
 import axios from "axios";
 import { UserContext } from "../../context/User/UserContext";
 import { LoginContext } from "../../context/Login/LoginContext";
+import { Modal } from "antd";
+import AddSip from "./AddSip/AddSip";
 const MutualFunds = () => {
   const [sips, setSips] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
   useEffect(() => {
     axios
       .get("http://localhost:8000/sips/get-sip")
@@ -16,7 +28,7 @@ const MutualFunds = () => {
       .catch((err) => console.log(err));
   }, []);
   const { user } = useContext(UserContext);
-  const{isLoggedIn}=useContext(LoginContext)
+  const { isLoggedIn } = useContext(LoginContext);
   return (
     <div className="py-6">
       <div className="max-w-[1110px] mx-auto ">
@@ -25,12 +37,17 @@ const MutualFunds = () => {
             All Mutual Funds
           </h1>
           {user.role === "admin" && isLoggedIn && (
-            <button className="py-2 transition-all duration-100 active:scale-[.95] flex items-center gap-2 font-semibold px-4  cursor-pointer text-white rounded-md mt-4 bg-[#02B386]">
-              ADD SIP
-              <span className="text-white text-lg">
-                <FaPlus />
-              </span>
-            </button>
+            <div>
+              <button onClick={showModal} className="py-2 transition-all duration-100 active:scale-[.95] flex items-center gap-2 font-semibold px-4  cursor-pointer text-white rounded-md mt-4 bg-[#02B386]">
+                ADD SIP
+                <span className="text-white text-lg">
+                  <FaPlus />
+                </span>
+              </button>
+              <Modal title="ADD SIP" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
+                  <AddSip setIsModalOpen={setIsModalOpen}/>
+              </Modal>
+            </div>
           )}
         </div>
 

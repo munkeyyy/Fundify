@@ -13,6 +13,25 @@ code {
     monospace;
 }
 
+.ant-modal{
+  width: 44% !important;
+}
+.ant-modal .ant-modal-header,.ant-modal .ant-modal-content{
+  background-color: #121212;
+}
+.ant-modal .ant-modal-title{
+  color: white;
+  text-align: center;
+  font-size: 1.5vw;
+}
+.ant-modal .ant-modal-close{
+  color: gray
+}:hover{
+  color: white !important;
+}
+.ant-modal .ant-modal-footer{
+  display: none;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
