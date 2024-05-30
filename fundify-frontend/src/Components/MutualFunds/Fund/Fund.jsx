@@ -9,7 +9,7 @@ const Fund = ({ image, category, risk, returns, name, id, setSips, sips }) => {
   const [isHidden, setIsHidden] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [sip, setSip] = useState({});
-  const{user}=useContext(UserContext)
+  const { user } = useContext(UserContext);
 
   const containerRef = useRef(null);
 
@@ -49,7 +49,7 @@ const Fund = ({ image, category, risk, returns, name, id, setSips, sips }) => {
       .delete(`http://localhost:8000/sips/delete-sip/${id}`)
       .then((res) => {
         console.log(res.data.data);
-        setSips(sips.filter((data)=>data._id!==id))
+        setSips(sips.filter((data) => data._id !== id));
         notification.success({ message: res.data.message });
       })
       .catch((err) => console.log(err));
@@ -90,15 +90,17 @@ const Fund = ({ image, category, risk, returns, name, id, setSips, sips }) => {
               <span>1y</span>
             </p>
           </div>
-          {user.role==="admin"&&<div
-            onClick={() => {
-              setIsHidden(!isHidden);
-            }}
-          >
-            <span className="text-[#2e2e2e] cursor-pointer hover:text-white">
-              <SlOptionsVertical />
-            </span>
-          </div>}
+          {user.role === "admin" && (
+            <div
+              onClick={() => {
+                setIsHidden(!isHidden);
+              }}
+            >
+              <span className="text-[#2e2e2e] cursor-pointer hover:text-white">
+                <SlOptionsVertical />
+              </span>
+            </div>
+          )}
         </div>
         <div
           className={`w-[10vw] ${
