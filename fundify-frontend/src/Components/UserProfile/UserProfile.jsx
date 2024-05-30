@@ -26,7 +26,7 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <div className="relative" ref={containerRef}>
+    <div className="relative " ref={containerRef}>
       <div
         title="profile"
         onClick={() => {
@@ -37,7 +37,7 @@ const UserProfile = () => {
         <img src={avatar} alt="avatar" className="h-full w-full object-cover" />
       </div>
       <div
-        className={`w-[23vw] bg-[#121212] absolute right-[-40%] top-[125%] border border-[#2e2e2e] transition-all overflow-hidden rounded ${
+        className={`w-[23vw] bg-[#121212] absolute z-[99] right-[-40%] top-[125%] border border-[#2e2e2e] transition-all overflow-hidden rounded ${
           isHidden ? "hidden" : "block"
         }`}
       >

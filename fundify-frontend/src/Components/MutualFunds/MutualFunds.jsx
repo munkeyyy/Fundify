@@ -62,6 +62,8 @@ const MutualFunds = () => {
                   returns={elem.returns}
                   risk={elem.riskLevel}
                   id={elem._id}
+                  setSips={setSips}
+                  sips={sips}
                 />
               </div>
             ))}

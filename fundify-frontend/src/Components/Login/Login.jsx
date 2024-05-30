@@ -88,7 +88,7 @@ const Login = ({setIsChanged}) => {
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col gap-1 w-[20vw] items-center">
-                  <label className="self-start" htmlFor="email">
+                  <label className="self-start text-[#2e2e2e]" htmlFor="email">
                     Your Email*
                   </label>
                   <input
@@ -106,7 +106,7 @@ const Login = ({setIsChanged}) => {
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 w-[20vw] relative items-center">
-                  <label className="self-start" htmlFor="password">
+                  <label className="self-start text-[#2e2e2e]" htmlFor="password">
                     Enter Password*
                   </label>
                   <input
@@ -130,7 +130,7 @@ const Login = ({setIsChanged}) => {
                       }`;
                     }}
                     type="button"
-                    className="text-lg absolute top-[40%] right-0 "
+                    className="text-lg text-gray-500 absolute top-[40%] right-0 "
                   >
                     {isClicked ? <IoMdEyeOff /> : <IoEye />}
                   </button>
@@ -146,11 +146,11 @@ const Login = ({setIsChanged}) => {
             )}
           </Formik>
         </div>
-        <div onClick={()=>setIsChanged(true)} className="flex p-4 mt-6 items-center gap-2 ">
+        <div  className="flex p-4 mt-6 items-center gap-2 text-[#2e2e2e] hover:text-gray-600">
           Don't have an account?{" "}
-          <span className="font-semibold text-black relative after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-0 after:bottom-[-5%] after:left-0 after:transition-all cursor-pointer hover:after:w-full">
+          <div onClick={()=>setIsChanged(true)} className="font-semibold text-black relative">
             Register
-          </span>
+          </div>
         </div>
       </div>
     </div>

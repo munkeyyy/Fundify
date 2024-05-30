@@ -88,7 +88,7 @@ const Register = ({setIsChanged}) => {
                 onSubmit={handleSubmit}
               >
                 <div className="flex flex-col gap-1 w-[20vw] items-center">
-                  <label className="self-start" htmlFor="user_name">
+                  <label className="self-start text-[#2e2e22]" htmlFor="user_name">
                     Your name*
                   </label>
                   <input
@@ -106,7 +106,7 @@ const Register = ({setIsChanged}) => {
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 w-[20vw] items-center">
-                  <label className="self-start" htmlFor="email">
+                  <label className="self-start text-[#2e2e22]" htmlFor="email">
                     Your Email*
                   </label>
                   <input
@@ -124,7 +124,7 @@ const Register = ({setIsChanged}) => {
                   </span>
                 </div>
                 <div className="flex flex-col gap-1 w-[20vw] relative items-center">
-                  <label className="self-start" htmlFor="password">
+                  <label className="self-start text-[#2e2e22]" htmlFor="password">
                     Enter Password*
                   </label>
                   <input
@@ -154,7 +154,7 @@ const Register = ({setIsChanged}) => {
                   </button>
                 </div>
                 <div className="flex flex-col gap-1 w-[20vw] items-center">
-                  <label className="self-start" htmlFor="phone">
+                  <label className="self-start text-[#2e2e22]" htmlFor="phone">
                     Phone*
                   </label>
                   <input
@@ -182,9 +182,9 @@ const Register = ({setIsChanged}) => {
             )}
           </Formik>
         </div>
-        <div onClick={()=>setIsChanged(false)} className="flex p-4 mt-6 items-center gap-2 ">
+        <div  className="flex p-4 text-[#2e2e2e] mt-6 items-center gap-2 ">
           Already have an account?{" "}
-          <span className="font-semibold text-black relative after:content-[''] after:absolute after:h-[2px] after:bg-black after:w-0 after:bottom-[-5%] after:left-0 after:transition-all cursor-pointer hover:after:w-full">
+          <span onClick={()=>setIsChanged(false)} className="font-semibold text-black relative">
             Login
           </span>
         </div>
