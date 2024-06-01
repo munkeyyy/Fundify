@@ -26,7 +26,8 @@ code {
 }
 .ant-modal .ant-modal-close{
   color: gray
-}:hover{
+}
+.ant-modal .ant-modal-close:hover{
   color: white !important;
 }
 .ant-modal .ant-modal-footer{

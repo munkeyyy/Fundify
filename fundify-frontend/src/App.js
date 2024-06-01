@@ -10,6 +10,7 @@ import UserProvider from "./context/User/UserProvider";
 import Auth from "./Components/Auth/Auth";
 import { useContext } from "react";
 import { LoginContext } from "./context/Login/LoginContext";
+import ProtectedRoute from "./Components/ProtectedRoute";
 
 // import Public from "./Components/Public";
 
@@ -19,9 +20,13 @@ function App() {
     <LoginProvider>
       <UserProvider>
         <div className="App">
-          {<Navbar />}
+          {/* {<Navbar />} */}
           <Routes>
-            <Route path="/" element={<MutualFunds />} />
+
+            <Route path="/" element={<ProtectedRoute />}>
+              <Route path="/" element={<MutualFunds />} />
+            </Route>
+
             <Route path="/login" element={<Auth />} />
           </Routes>
         </div>

@@ -5,10 +5,12 @@ import { UserContext } from "../../../context/User/UserContext";
 import axios from "axios";
 import { notification } from "antd";
 import { MdDeleteOutline } from "react-icons/md";
+import {useNavigate} from "react-router-dom"
 
-const AddSip = ({setIsModalOPen}) => {
+const AddSip = ({setIsModalOpen, setSips, sips}) => {
   const [pictures, setPictures] = useState([]);
   const imgRef = useRef();
+  const navigate=useNavigate()
   const fileChange = (e, handleChange) => {
     const files = e.target.files;
     const newPictures = [];
@@ -103,7 +105,9 @@ const AddSip = ({setIsModalOPen}) => {
                       })
                       .then((res) => {
                         console.log(res.data.data);
-                        setIsModalOPen(false)
+                        setSips([...sips, res.data.data])
+                        setIsModalOpen(false)
+                        navigate("/")
                         notification.success({
                           message: res.data.message,
                         });

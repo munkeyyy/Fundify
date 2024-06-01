@@ -15,7 +15,7 @@ const Login = ({setIsChanged}) => {
   const { setUser } = useContext(UserContext);
   
   return (
-    <div className="bg-white w-full h-full">
+    <div className="bg-white w-full h-full relative z-[10]">
       <div className="flex p-4 items-center justify-center flex-col">
         <h1 className="text-[#45475B] mt-4 font-semibold text-[2vw]">Welcome</h1>
         <div>

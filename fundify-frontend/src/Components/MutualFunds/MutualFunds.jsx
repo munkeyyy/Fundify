@@ -45,7 +45,7 @@ const MutualFunds = () => {
                 </span>
               </button>
               <Modal title="ADD SIP" open={isModalOpen} onOk={handleOk} onCancel={handleCancel}>
-                  <AddSip setIsModalOpen={setIsModalOpen}/>
+                  <AddSip setSips={setSips} sips={sips} setIsModalOpen={setIsModalOpen}/>
               </Modal>
             </div>
           )}

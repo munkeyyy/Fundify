@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import React, { useRef, useState, useEffect } from "react";
 import { FaPlus } from "react-icons/fa";
 import { MdDeleteOutline } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 const UpdateSip = ({
   sipName,
@@ -16,7 +17,7 @@ const UpdateSip = ({
 }) => {
   const [picture, setPicture] = useState(sipImg || '');
   const imgRef = useRef();
-
+const navigate=useNavigate()
   useEffect(() => {
     setPicture(sipImg);
   }, [sipImg]);
@@ -103,6 +104,7 @@ const UpdateSip = ({
                         },
                       })
                       .then((res) => {
+                        navigate("/")
                         notification.success({
                           message: res.data.message,
                         });

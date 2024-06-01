@@ -11,7 +11,7 @@ const Register = ({setIsChanged}) => {
   const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
   return (
-    <div className="bg-white w-full h-full">
+    <div className="bg-white w-full h-full relative z-[10]">
       <div className="flex p-4 items-center justify-center flex-col">
         <h1 className="text-[#45475B] text-[1.3vw] font-bold">Register</h1>
         <div>
@@ -184,9 +184,9 @@ const Register = ({setIsChanged}) => {
         </div>
         <div  className="flex p-4 text-[#2e2e2e] mt-6 items-center gap-2 ">
           Already have an account?{" "}
-          <span onClick={()=>setIsChanged(false)} className="font-semibold text-black relative">
+          <button onClick={()=>setIsChanged(false)} className="font-semibold cursor-pointer text-black relative">
             Login
-          </span>
+          </button>
         </div>
       </div>
     </div>
