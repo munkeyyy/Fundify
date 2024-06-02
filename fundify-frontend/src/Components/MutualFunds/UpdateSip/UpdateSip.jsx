@@ -14,6 +14,9 @@ const UpdateSip = ({
   sipReturns,
   sipImg,
   sipId,
+  setIsModalOpen,
+  sips,
+  setSips
 }) => {
   const [picture, setPicture] = useState(sipImg || '');
   const imgRef = useRef();
@@ -104,6 +107,18 @@ const navigate=useNavigate()
                         },
                       })
                       .then((res) => {
+                        setIsModalOpen(false)
+                        // const updatedSip = {
+                        //   id: sipId,
+                        //   name: values.name,
+                        //   description: values.description,
+                        //   category: values.category,
+                        //   returns: values.returns,
+                        //   riskLevel: values.riskLevel,
+                        //   image: picture,
+                        // };
+                        // setSips([...sips,updatedSip])
+                        window.location.reload()
                         navigate("/")
                         notification.success({
                           message: res.data.message,

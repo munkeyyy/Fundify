@@ -105,7 +105,7 @@ const Fund = ({ image, category, risk, returns, name, id, setSips, sips }) => {
         <div
           className={`w-[10vw] ${
             isHidden ? "hidden" : "block"
-          } rounded border absolute right-0 bg-[#121212] top-[90%] z-[99] border-gray-500`}
+          } rounded border absolute right-[-15%] bg-[#121212] top-[-26%] z-[99] border-gray-500`}
         >
           <button
             onClick={() => updateSip(id)}
@@ -135,6 +135,9 @@ const Fund = ({ image, category, risk, returns, name, id, setSips, sips }) => {
           sipReturns={sip.returns}
           sipImg={"http://localhost:8000/uploads/sips/" + sip.image}
           sipId={sip._id}
+          setIsModalOpen={setIsModalOpen}
+          sips={sips}
+          setSips={setSips}
         />
       </Modal>
     </div>

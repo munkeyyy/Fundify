@@ -29,8 +29,16 @@ const MutualFunds = () => {
   }, []);
   const { user } = useContext(UserContext);
   const { isLoggedIn } = useContext(LoginContext);
+  const handleUpdatesip = (updatedSip) => {
+    setSips((prevSips) =>
+      prevSips.map((sip) =>
+        sip.id === updatedSip.id ? updatedSip : sip
+      )
+    );
+  };
+
   return (
-    <div className="py-6">
+    <div className="pt-4 py-8">
       <div className="max-w-[1110px] mx-auto ">
         <div className=" flex items-center justify-between">
           <h1 className="text-white text-[1.5vw] font-sans font-medium">
@@ -64,6 +72,7 @@ const MutualFunds = () => {
                   id={elem._id}
                   setSips={setSips}
                   sips={sips}
+                  onUpdate={handleUpdatesip}
                 />
               </div>
             ))}
