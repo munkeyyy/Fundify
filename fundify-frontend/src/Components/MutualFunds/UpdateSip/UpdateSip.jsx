@@ -108,16 +108,7 @@ const navigate=useNavigate()
                       })
                       .then((res) => {
                         setIsModalOpen(false)
-                        // const updatedSip = {
-                        //   id: sipId,
-                        //   name: values.name,
-                        //   description: values.description,
-                        //   category: values.category,
-                        //   returns: values.returns,
-                        //   riskLevel: values.riskLevel,
-                        //   image: picture,
-                        // };
-                        // setSips([...sips,updatedSip])
+                        
                         window.location.reload()
                         navigate("/")
                         notification.success({
