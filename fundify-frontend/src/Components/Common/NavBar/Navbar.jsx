@@ -25,7 +25,7 @@ const Navbar = () => {
   return (
     <div className="py-4 border-b border-[#2e2e2e]">
       <div className="max-w-[1110px] mx-auto  flex items-center gap-8 justify-betweeen">
-        <div className="logo w-[8.5vw]">
+        <div onClick={navigate("/")} className="logo cursor-pointer w-[8.5vw]">
           <img src={logo} className="h-full w-full object-cover" alt="logo" />
         </div>
         <div>

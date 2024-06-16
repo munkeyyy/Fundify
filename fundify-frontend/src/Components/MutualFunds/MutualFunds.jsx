@@ -9,6 +9,7 @@ import AddSip from "./AddSip/AddSip";
 const MutualFunds = () => {
   const [sips, setSips] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading]=useState(true)
   const showModal = () => {
     setIsModalOpen(true);
   };
