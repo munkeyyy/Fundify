@@ -49,7 +49,7 @@ const Login = ({setIsChanged}) => {
                   password: values.password,
                 })
                 .then((res) => {
-                  console.log(res.data);
+                  // console.log(res.data);
                   setUser(res.data.data);
                   setIsLoggedIn(true);
                   notification.success({ message: res.data.message });
@@ -68,8 +68,8 @@ const Login = ({setIsChanged}) => {
                   setTimeout(logout, 3600000);
                 })
                 .catch((err) => {
-                  console.log(err);
-                  notification.error({ message: err });
+                  // console.log(err.response);
+                  notification.error({ message: err.response.data.message });
                 });
             }}
           >

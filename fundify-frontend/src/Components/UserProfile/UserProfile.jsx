@@ -94,7 +94,7 @@ const UserProfile = () => {
           </div>
         </div>
         <div>
-          {user.role === "admin" && isLoggedIn && (
+          {/* {user.role === "admin" && isLoggedIn && (
             <div
               onClick={getUsers}
               className="flex gap-2 py-3 px-4 cursor-pointer  text-white text-[0.98vw] items-center"
@@ -104,7 +104,7 @@ const UserProfile = () => {
               </span>
               Users
             </div>
-          )}
+          )} */}
           <div
             onClick={() => {
               localStorage.clear();
