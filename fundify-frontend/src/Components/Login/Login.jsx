@@ -148,7 +148,7 @@ const Login = ({setIsChanged}) => {
         </div>
         <div  className="flex p-4 mt-6 items-center gap-2 text-[#2e2e2e] hover:text-gray-600">
           Don't have an account?{" "}
-          <div onClick={()=>setIsChanged(true)} className="font-semibold text-black relative">
+          <div onClick={()=>setIsChanged(true)} className="font-semibold cursor-pointer text-black relative">
             Register
           </div>
         </div>
