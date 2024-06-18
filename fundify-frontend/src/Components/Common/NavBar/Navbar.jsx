@@ -14,14 +14,16 @@ const Navbar = () => {
   const [value, setValue] = useState("");
   const navigate= useNavigate()
   const { isLoggedIn } = useContext(LoginContext);
-  const handleChange = (e) => {
-    if (e.target.value.length > 0) {
-      setIsChanging(true);
-    } else {
-      setIsChanging(false);
-    }
-    setValue(e.target.value);
-  };
+  // const handleChange = (e) => {
+  //   var changing
+  //   if (e.target.value.length > 0) {
+  //     changing=true;
+  //   } else {
+  //     changing=false;
+  //   }
+  //   setIsChanging(changing)
+  //   setValue(e.target.value);
+  // };
   return (
     <div className="py-4 border-b border-[#2e2e2e]">
       <div className="max-w-[1110px] mx-auto  flex items-center gap-8 justify-betweeen">
@@ -44,8 +46,8 @@ const Navbar = () => {
           </span>
           <input
             type="text"
-            onChange={(e) => handleChange(e)}
-            value={value}
+            // onChange={(e) => handleChange(e)}
+            // value={value}
             placeholder="What are we looking for today?"
             className=" caret-[#0abb92] text-white placeholder:text-[#f8f8f8]   w-full  focus-visible:outline-none "
           />

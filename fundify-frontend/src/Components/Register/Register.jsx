@@ -65,6 +65,7 @@ const Register = ({setIsChanged}) => {
                   console.log(res.data);
                   notification.success({ message: res.data.message });
                   // localStorage.setItem("token", res.data.token);
+                  setIsChanged(false)
                   navigate("/login");
                 })
                 .catch((err) => {

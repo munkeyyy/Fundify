@@ -138,7 +138,7 @@ const Login = ({setIsChanged}) => {
                 <button
                   className="py-2 font-semibold px-4 w-full cursor-pointer text-white rounded-md mt-4 bg-[#02B386]"
                   type="submit"
-                  disabled={isSubmitting}
+                  // disabled={isSubmitting}
                 >
                   Submit
                 </button>
